@@ -59,47 +59,40 @@ export default function Register() {
 
       const navigate=useNavigate();
     
-     var logincheck = (e) => {
-          e.preventDefault();
-
-          // reset messages
-          setSuccessMsg("");
-          setErrorMsg("");
-
-          // mandatory field validation
-          if (
-            !user.username.trim() ||
-            !user.email.trim() ||
-            !user.password.trim() ||
-            !user.userType
-          ) {
-            setErrorMsg("All fields are mandatory");
-            return;
-          }
-
-          fetch("http://localhost:8080/register", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user),
+      var logincheck = (e) => {
+        e.preventDefault();
+      
+        setSuccessMsg("");
+        setErrorMsg("");
+      
+        if (
+          !user.username?.trim() ||
+          !user.email?.trim() ||
+          !user.password?.trim() ||
+          !user.type?.trim()
+        ) {
+          setErrorMsg("All fields are mandatory");
+          return;
+        }
+      
+        fetch("http://localhost:8080/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(user),
+        })
+          .then((res) => {
+            if (!res.ok) throw new Error();
+            return res.json();
           })
-            .then((res) => {
-              if (!res.ok) {
-                throw new Error("Registration failed");
-              }
-              return res.json();
-            })
-            .then(() => {
-              setSuccessMsg("Registration successful. Please login.");
-              setTimeout(() => {
-                navigate("/Userlogin");
-              }, 1500);
-            })
-            .catch(() => {
-              setErrorMsg("Registration failed. Please try again.");
-            });
+          .then(() => {
+            setSuccessMsg("Registration successful. Please login.");
+            setTimeout(() => navigate("/Userlogin"), 1500);
+          })
+          .catch(() => {
+            setErrorMsg("Registration failed. Please try again.");
+          });
       };
+      
 
 
 
