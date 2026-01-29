@@ -1,6 +1,23 @@
-import { Link, Outlet } from "react-router-dom";
+import React , {useEffect} from "react";
+import { Link, Outlet , useNavigate } from "react-router-dom";
 
-function VillagersHome() {
+export default function VillagersHome() {
+  const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem("loggeduser"));
+
+ useEffect(() => {
+      if (!user) {
+        navigate("/Userlogin");
+      }
+    }, [user, navigate]);
+
+
+if (!user) return null;
+
+  const { first_name, last_name } = user;
+
+
   return (
     <>
       {/* ✅ VILLAGERS NAVBAR */}
@@ -34,18 +51,46 @@ function VillagersHome() {
             </Link>
           </li>
 
-          <li className="nav-item">
-            <Link className="nav-link text-danger" to="/logout">
-              Logout
-            </Link>
-          </li>
         </ul>
-      </nav>
+        <ul className="navbar-nav ms-auto">
+            <li className="nav-item dropdown user-dropdown">
+              <span
+                className="nav-link dropdown-toggle user-name"
+                data-bs-toggle="dropdown"
+              >
+                <strong>{user.first_name} {user.last_name}</strong>
+              </span>
+            <ul className="dropdown-menu user-menu">
 
-      {/* ✅ CHILD PAGES RENDER HERE */}
+              <li className="user-info">
+                <strong>{user.first_name} {user.last_name}</strong>
+                
+              </li>
+
+              <li><hr className="dropdown-divider" /></li>
+
+              <li>
+                <button className="dropdown-item logout-btn"
+                  onClick={() => {
+                    localStorage.clear();
+                    navigate("/");
+                  }}
+                >    
+                  Logout
+                </button>
+              </li>
+            </ul>
+            </li>
+            </ul>
+      </nav>
+          <div className="container mt-4 text-center">
+          <h5 className="fw-bold fst-italic">
+            Welcome {first_name} {last_name}
+          </h5>
+        </div>
+      
       <Outlet />
     </>
   );
 }
 
-export default VillagersHome;

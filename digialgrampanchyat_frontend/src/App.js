@@ -21,13 +21,14 @@ import BirthCertificateForm from "./Mycomponents/Certificates/BirthCertificateFo
 import WaterConnectionForm from "./Mycomponents/Certificates/WaterConnectionForm";
 import PropertyTaxForm from "./Mycomponents/Certificates/PropertyTaxForm";
 import RationCardForm from "./Mycomponents/Certificates/RationCardForm";
+import MainLayout from './Layout/MainLayout';
 
 function App() {
   return (
     <Routes>
 
-      {/* 🔓 PUBLIC ROUTES */}
-      <Route path="/" element={<Home />} />
+      
+      <Route path="/" element={<MainLayout />} />
       <Route path="/Home" element={<Home />} />
       <Route path="/Userlogin" element={<Userlogin />} />
       <Route path="/Register" element={<Register />} />

@@ -38,8 +38,8 @@ export default function BrowseSchemes() {
 
     return (
         <div >
-          <h5><strong><i> Welcome {first_name}  {last_name}</i></strong></h5>
-             <div className="form-container">
+          
+    <div className="form-container">
     
     <div className="login-form">
       <div className="form">

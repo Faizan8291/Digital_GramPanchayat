@@ -10,7 +10,7 @@ export default function MainLayout() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <img
             src={process.env.PUBLIC_URL + "logodg.png"}
-            height="100"
+            height="60"
             alt="logo"
           />
 

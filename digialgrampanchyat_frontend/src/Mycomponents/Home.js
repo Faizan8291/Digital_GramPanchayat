@@ -1,4 +1,4 @@
-function Home() {
+export default function Home() {
     return (
       <>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -16,13 +16,14 @@ function Home() {
             <li className="nav-item"><a className="nav-link" href="/Contact">Contact</a></li>
           </ul>
         </nav>
+        
   
-        <div className="container mt-5">
+        {/* <div className="container mt-5">
           <h2>Welcome to Digital Grampanchayat</h2>
-        </div>
+        </div> */}
       </>
     );
   }
   
-  export default Home;
+ 
   
