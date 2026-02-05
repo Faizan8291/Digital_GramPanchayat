@@ -32,12 +32,6 @@ public class UserProblemController {
 		return upserv.getProblem(useridfk);
 	}
 	
-	@GetMapping("/deleteproblems/{useridfk}")
-	public void delete(@PathVariable int useridfk)
-	{
-		upserv.deleteProblem(useridfk);
-	}
-	
 	@GetMapping("/deleteBypid")
 	public boolean deleteBypid(@RequestParam("pid")int p_id)
 	{

@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Register_report;
-import com.example.demo.entities.UserProblem;
 import com.example.demo.services.ReportService;
-import com.example.demo.services.UserProblemService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController

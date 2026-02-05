@@ -2,16 +2,12 @@ package com.example.demo.entities;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -24,25 +20,31 @@ public class Birthdeath {
 	
 	@Column
 	private String bname;
+	
 	@Column
 	private Date date;
+	
 	@Column
 	private String hospitalname;
+	
 	@Column
 	private String bplace;
 	
-//	@ManyToOne(cascade=CascadeType.MERGE	)
-//	@JoinColumn(name = "useridfk",referencedColumnName="user_id")
 	@Column
 	private int useridfk;
 	
-	
-//	@OneToOne(cascade=CascadeType.MERGE)
-//	@JoinColumn(name = "bdtype",referencedColumnName="bdtype")
+	@Column
 	private int bdtype;
+	
+	// New fields for certificate generation
+	@Column(unique = true)
+	private String certificateNumber;
+	
+	@Lob
+	@Column(columnDefinition = "LONGBLOB")
+	private byte[] pdfData;
 
-	public Birthdeath()
-	{
+	public Birthdeath() {
 		super();
 	}
 
@@ -113,9 +115,20 @@ public class Birthdeath {
 	public void setBdtype(int bdtype) {
 		this.bdtype = bdtype;
 	}
-	
-	
 
-	
-	
+	public String getCertificateNumber() {
+		return certificateNumber;
+	}
+
+	public void setCertificateNumber(String certificateNumber) {
+		this.certificateNumber = certificateNumber;
+	}
+
+	public byte[] getPdfData() {
+		return pdfData;
+	}
+
+	public void setPdfData(byte[] pdfData) {
+		this.pdfData = pdfData;
+	}
 }

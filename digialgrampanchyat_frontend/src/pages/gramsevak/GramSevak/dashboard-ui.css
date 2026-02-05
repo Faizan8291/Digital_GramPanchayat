@@ -1,0 +1,90 @@
+.gs-page {
+  width: min(1200px, 94vw);
+  margin: 1.25rem auto 2rem;
+}
+
+.gs-card {
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(16, 24, 40, 0.06);
+  padding: 1rem;
+}
+
+.gs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.gs-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.gs-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.92rem;
+  color: #475467;
+}
+
+.gs-chip {
+  border-radius: 999px;
+  background: #eef4ff;
+  color: #1d4ed8;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.gs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.gs-grid .form-control {
+  min-height: 44px;
+}
+
+.gs-grid-full {
+  grid-column: span 2;
+}
+
+.gs-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.gs-table th {
+  white-space: nowrap;
+}
+
+.gs-empty {
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 0.85rem;
+  text-align: center;
+  color: #64748b;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .gs-page {
+    width: 95vw;
+  }
+
+  .gs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gs-grid-full {
+    grid-column: span 1;
+  }
+}
