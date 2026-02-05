@@ -1,0 +1,113 @@
+# ===========================================
+# EMAIL CONFIGURATION TEMPLATE
+# ===========================================
+# Copy these settings to your application.properties
+# Replace the placeholder values with your actual credentials
+# ===========================================
+
+# Database Configuration (Keep your existing config)
+spring.datasource.url=jdbc:mysql://localhost:3306/panchayat
+spring.datasource.username=root
+spring.datasource.password=root
+server.port=7500
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+# ===========================================
+# EMAIL CONFIGURATION - GMAIL
+# ===========================================
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+
+# TODO: Replace with your Gmail address
+spring.mail.username=digitalgp2024@gmail.com
+
+# TODO: Get App Password from Google Account Settings
+# Go to: https://myaccount.google.com/apppasswords
+# Generate 16-character password and paste here
+spring.mail.password=abcd efgh ijkl mnop
+
+# SMTP Properties
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.starttls.required=true
+spring.mail.properties.mail.smtp.connectiontimeout=5000
+spring.mail.properties.mail.smtp.timeout=5000
+spring.mail.properties.mail.smtp.writetimeout=5000
+
+# Application Email Settings
+# TODO: Replace with your email
+app.mail.from=digitalgp2024@gmail.com
+app.mail.fromName=Digital Gram Panchayat
+
+# ===========================================
+# ALTERNATIVE: OUTLOOK/HOTMAIL CONFIGURATION
+# ===========================================
+# Uncomment below and comment Gmail config if using Outlook
+
+#spring.mail.host=smtp.office365.com
+#spring.mail.port=587
+#spring.mail.username=your-email@outlook.com
+#spring.mail.password=your-password
+#app.mail.from=your-email@outlook.com
+
+# ===========================================
+# ALTERNATIVE: YAHOO MAIL CONFIGURATION
+# ===========================================
+# Uncomment below and comment Gmail config if using Yahoo
+
+#spring.mail.host=smtp.mail.yahoo.com
+#spring.mail.port=587
+#spring.mail.username=your-email@yahoo.com
+#spring.mail.password=your-app-password
+#app.mail.from=your-email@yahoo.com
+
+# ===========================================
+# PRODUCTION ENVIRONMENT VARIABLES (Recommended)
+# ===========================================
+# For production, use environment variables instead:
+# spring.mail.username=${EMAIL_USERNAME:default@example.com}
+# spring.mail.password=${EMAIL_PASSWORD:defaultpassword}
+# app.mail.from=${EMAIL_FROM:default@example.com}
+
+# ===========================================
+# EMAIL TESTING ENDPOINT (Optional - for development only)
+# ===========================================
+# Add this endpoint to CertificateController.java for testing:
+#
+# @GetMapping("/test-email")
+# public ResponseEntity<?> testEmail(@RequestParam String to) {
+#     try {
+#         emailService.sendSimpleEmail(to, "Test Email", 
+#             "If you received this, email configuration is working!");
+#         return ResponseEntity.ok(Map.of("status", "Email sent successfully"));
+#     } catch (Exception e) {
+#         return ResponseEntity.status(500)
+#             .body(Map.of("error", e.getMessage()));
+#     }
+# }
+#
+# Test with: http://localhost:7500/api/certificates/test-email?to=test@example.com
+
+# ===========================================
+# TROUBLESHOOTING TIPS
+# ===========================================
+# 
+# 1. GMAIL USERS:
+#    - Enable 2-Factor Authentication
+#    - Generate App Password (not regular password)
+#    - Allow "Less secure apps" if App Password doesn't work
+#
+# 2. EMAIL NOT SENDING:
+#    - Check console logs for errors
+#    - Verify credentials are correct
+#    - Check if port 587 is open
+#    - Try with a test email first
+#
+# 3. GMAIL BLOCKING:
+#    - Go to https://myaccount.google.com/lesssecureapps
+#    - Or use App Passwords (recommended)
+#
+# 4. CHECK EMAIL IN SPAM:
+#    - First few emails might go to spam
+#    - Mark as "Not Spam" to train filters

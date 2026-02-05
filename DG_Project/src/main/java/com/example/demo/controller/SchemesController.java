@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entities.Schemes;
-import com.example.demo.entities.User;
-import com.example.demo.entities.UserType;
 import com.example.demo.services.SchemesService;
 
 @CrossOrigin(origins = "http://localhost:3000")
