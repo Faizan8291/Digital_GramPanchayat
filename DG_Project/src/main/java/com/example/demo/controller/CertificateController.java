@@ -144,7 +144,6 @@ public class CertificateController {
         response.put("statusCount", statusCount);
         return ResponseEntity.ok(response);
     }
-
     @PostMapping("/{id}/approve")
     public ResponseEntity<?> approveCertificate(@PathVariable Long id,
                                                 @RequestBody(required = false) Map<String, Object> approvalData) {

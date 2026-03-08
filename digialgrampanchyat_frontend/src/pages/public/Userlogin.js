@@ -212,9 +212,6 @@ function Userlogin() {
                       label="Remember me"
                       id="rememberMe"
                     />
-                    <Link to="#" className="text-decoration-none" style={{ color: '#667eea' }}>
-                      Forgot Password?
-                    </Link>
                   </div>
 
                   <Button

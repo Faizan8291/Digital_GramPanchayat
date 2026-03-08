@@ -132,7 +132,7 @@ export default function MainLayout() {
       {/* Footer - Reduced spacing */}
       <div className="p-3 bg-dark text-white text-center" style={{ fontSize: '0.9rem' }}>
         <p className="mb-1" id="contact">Contact Details : 020-345867</p>
-        <p className="mb-1">Head Office : Shop no. 22 ,Grampanchayat building ,Near Bhairavnath mandir, Loni, Ahmednagar</p>
+        <p className="mb-1">Head Office : Shop no. 22 ,Grampanchayat building near Kapileshwar temple Mumbai 400043 Maharashtra</p>
         <p className="mb-0">CopyRights :</p>
       </div>
     </div>

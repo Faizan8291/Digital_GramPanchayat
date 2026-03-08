@@ -19,17 +19,7 @@ function SelectPanchayat() {
     <div style={styles.page}>
       <div style={styles.overlay}>
 
-        {/* ✅ BLUE NAVBAR */}
-        <div style={styles.navbar}>
-          <div style={styles.navLeft}>
-            <img
-              src={process.env.PUBLIC_URL + "/logodg.png"}
-              height="60"
-              alt="logo"
-            />
-            <h2 style={styles.navTitle}>Digital Gram Panchayat</h2>
-          </div>
-        </div>
+        
 
         {/* ✅ HERO */}
         <div style={styles.hero}>
